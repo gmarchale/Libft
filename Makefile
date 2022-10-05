@@ -6,6 +6,8 @@ SRCS = ft_strlen.c \
 	   ft_isalnum.c \
 	   ft_isascii.c \
 	   ft_isprint.c \
+	   ft_strncmp.c \
+	   ft_strlcat.c \
 	   ft_strlcpy.c \
 
 OBJ = $(SRCS:.c=.o)
