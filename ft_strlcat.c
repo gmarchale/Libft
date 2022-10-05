@@ -6,7 +6,7 @@
 /*   By: gmarchal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:34:44 by gmarchal          #+#    #+#             */
-/*   Updated: 2022/10/05 16:03:44 by gmarchal         ###   ########.fr       */
+/*   Updated: 2022/10/05 19:30:41 by gmarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ size_t	ft_strlcat(char *dst, char *src, size_t dstsize)
 
 	i = 0;
 	srcsize = 0;
-	//if (dstsize == 0)
-	//	return (0);
 	while (src[srcsize])
 		srcsize++;
 	if (dstsize == 0)
