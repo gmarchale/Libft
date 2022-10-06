@@ -1,30 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmarchal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/05 18:02:38 by gmarchal          #+#    #+#             */
-/*   Updated: 2022/10/06 11:16:53 by gmarchal         ###   ########.fr       */
+/*   Created: 2022/10/06 11:19:42 by gmarchal          #+#    #+#             */
+/*   Updated: 2022/10/06 15:27:25 by gmarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t	i;
+	size_t	j;
+	char	*ret;
 
-	i = 0;
-	if (n <= 0)
+	i = -1;
+	ret = (char *) haystack;
+	if (ft_strlen(needle) == 0)
+		return (ret);
+	if (len == 0)
 		return (0);
-	while ((s1[i] || s2[i]) && i < n)
+	while (haystack[++i])
 	{
-		if (s1[i] - s2[i] != 0)
-			return (s1[i] - s2[i]);
-		i++;
+		j = -1;
+		while (needle[++j])
+		{
+			if (haystack[i + j] == needle[j] && i + j < len)
+			{
+				if (j == ft_strlen(needle) - 1)
+					return (&ret[i]);
+			}
+			else
+				break ;
+		}
 	}
-	i--;
-	return (s1[i] - s2[i]);
+	return (0);
 }

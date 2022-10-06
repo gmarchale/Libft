@@ -1,6 +1,6 @@
 NAME = libft.a
  
-SRCS = ft_strlen.c \
+SRCS = ft_strlen.c  \
 	   ft_isalpha.c \
 	   ft_isdigit.c \
 	   ft_isalnum.c \
@@ -9,6 +9,8 @@ SRCS = ft_strlen.c \
 	   ft_strncmp.c \
 	   ft_strlcat.c \
 	   ft_strlcpy.c \
+	   ft_strnstr.c \
+	   ft_atoi.c    \
 
 OBJ = $(SRCS:.c=.o)
 
