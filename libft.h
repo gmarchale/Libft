@@ -6,13 +6,14 @@
 /*   By: gmarchal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 11:33:46 by gmarchal          #+#    #+#             */
-/*   Updated: 2022/10/06 15:57:44 by gmarchal         ###   ########.fr       */
+/*   Updated: 2022/10/07 15:06:35 by gmarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <unistd.h>
+# include <limits.h>
 
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
