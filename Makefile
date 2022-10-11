@@ -21,6 +21,7 @@ SRCS = ft_strlen.c  \
 	   ft_toupper.c \
 	   ft_tolower.c \
 	   ft_memchr.c  \
+	   ft_memcmp.c  \
 
 OBJ = $(SRCS:.c=.o)
 

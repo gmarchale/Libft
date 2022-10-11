@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmarchal <gmarchal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gmarchal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/04 14:46:44 by gmarchal          #+#    #+#             */
-/*   Updated: 2022/10/11 17:39:18 by gmarchal         ###   ########.fr       */
+/*   Created: 2022/10/11 17:06:09 by gmarchal          #+#    #+#             */
+/*   Updated: 2022/10/11 17:33:30 by gmarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	i;
-	size_t	srcsize;
+	size_t			i;
+	unsigned char	*c1;
+	unsigned char	*c2;
 
 	i = 0;
-	srcsize = 0;
-	while (src[srcsize])
-		srcsize++;
-	if (dstsize == 0)
-		return (srcsize);
-	while (i < dstsize - 1 && src[i])
+	c1 = (unsigned char *)s1;
+	c2 = (unsigned char *)s2;
+	while (i < n)
 	{
-		dst[i] = src[i];
+		if (c1[i] - c2[i] != 0)
+		{
+			return (c1[i] - c2[i]);
+		}
 		i++;
 	}
-	dst[i] = '\0';
-	return (srcsize);
+	return (0);
 }
