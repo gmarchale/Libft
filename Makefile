@@ -30,6 +30,7 @@ SRCS = ft_strlen.c  \
 	   ft_substr.c  \
 	   ft_strmapi.c \
 	   ft_strjoin.c \
+	   ft_strtrim.c \
 
 OBJ = $(SRCS:.c=.o)
 
