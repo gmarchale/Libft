@@ -29,6 +29,7 @@ SRCS = ft_strlen.c  \
 	   ft_putnbr_fd.c  \
 	   ft_substr.c  \
 	   ft_strmapi.c \
+	   ft_strjoin.c \
 
 OBJ = $(SRCS:.c=.o)
 
