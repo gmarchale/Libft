@@ -6,66 +6,71 @@
 /*   By: gmarchal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 14:25:16 by gmarchal          #+#    #+#             */
-/*   Updated: 2022/10/17 18:18:51 by gmarchal         ###   ########.fr       */
+/*   Updated: 2022/10/18 16:41:57 by gmarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-static size_t	ft_count_digits(int n)
-{
-	size_t	i;
 
-	i = -1;
-	while (n != 0)
+static size_t	ft_count_digits(int n, int *is_neg)
+{
+	size_t		len;
+	long int	nb;
+
+	*is_neg = 0;
+	len = 1;
+	nb = n;
+	if (nb < 0)
 	{
-		n = n / 10;
-		i++;
+		*is_neg = 1;
+		nb *= -1;
 	}
-	if (n == 0)
-		i++;
-	return (i);
+	while (nb >= 10)
+	{
+		nb /= 10;
+		len++;
+	}
+	return (len + *is_neg);
 }
 
 char	*ft_itoa(int n)
 {
-	int		i;
-	int		negative;
-	char	*str;
+	long int	nb;
+	int			len;
+	int			is_neg;
+	char		*str;
 
-	negative = 0;
-	if (n < 0)
-	{
-		negative = 1;
-		n *= -1;
-	}
-	i = ft_count_digits(n);
-	str = malloc(sizeof(char) * (i + negative + 1));
+	nb = n;
+	len = ft_count_digits(nb, &is_neg);
+	str = malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (0);
-	str[i + negative] = '\0';
-	i--;
-	while (i  >= negative)
+	str[len] = '\0';
+	len--;
+	if (nb < 0)
+		nb *= -1;
+	while (len >= 0)
 	{
-		str[i] = (n % 10) + 48;
-		n = n / 10;
-		i--;
+		str[len] = (nb % 10) + '0';
+		nb /= 10;
+		--len;
 	}
-	if (negative == 1)
+	if (is_neg)
 		str[0] = '-';
 	return (str);
 }
-
+/*
 #include <stdio.h>
 int	main(void)
 {
 	int	n;
 	
-	n = -100;
-	while (n < 110)
+	n = -25;
+	while (n < 1101)
 	{
-		printf("%s\n", ft_itoa(n));
+		printf("%s,	", ft_itoa(n));
 		n++;
 	}
 	return (0);
 }
+*/
