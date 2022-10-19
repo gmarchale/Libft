@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmarchal <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gmarchal <gmarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 10:54:23 by gmarchal          #+#    #+#             */
-/*   Updated: 2022/10/17 13:45:30 by gmarchal         ###   ########.fr       */
+/*   Updated: 2022/10/19 15:06:00 by gmarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,10 @@ static char	**ft_insert_to_tab(char **tab, char const *s, char c)
 			tab[i] = ft_word(s, c);
 			if (!tab[i])
 			{
-				while (*tab)
-					free(tab++);
+				i = 0;
+				while (tab[i])
+					free(tab[i++]);
+				free(tab);
 				return (NULL);
 			}
 			i++;
@@ -86,10 +88,6 @@ char	**ft_split(char const *s, char c)
 		return (0);
 	tab = malloc(sizeof(char const *) * (ft_count_words(s, c) + 1));
 	if (!tab)
-	{
-		free(tab);
 		return (NULL);
-	}
-	tab = ft_insert_to_tab(tab, s, c);
-	return (tab);
+	return (ft_insert_to_tab(tab, s, c));
 }
