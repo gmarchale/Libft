@@ -31,7 +31,7 @@ int	ft_atoi(const char *str)
 			sign = -1;
 	}
 	while (str[i] == '0')
-		i ++;
+		i++;
 	while ((str[i] >= '0' && str[i] <= '9' && ++count))
 		result = result * 10 + (str[i++] - '0');
 	if ((result > LLONG_MAX || count > 19) && sign == -1)
